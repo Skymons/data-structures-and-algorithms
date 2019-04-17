@@ -6,7 +6,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  arr.sort(function(a, b){return b - a})
+  arr.sort(function(a, b){return b - a;});
   return arr;
 };
 
@@ -28,8 +28,8 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-arr.sort(function(a, b) {return a.length - b.length})
-return arr;
+  arr.sort(function(a, b) {return a.length - b.length;});
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -39,8 +39,8 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-arr.sort(function(a, b) {return a.localeCompare(b)})
-return arr;
+  arr.sort(function(a, b) {return a.localeCompare(b);});
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,8 +55,11 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  arr.sort(function(a, b) {return a.price - b.price;});
+  return arr;
 };
+  // Solution code here...
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -66,6 +69,11 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   // Solution code here...
+  arr.sort(function (a,b){
+    return a.toString().length - b.toString().length;
+
+  });
+  return arr;
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -86,7 +94,10 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  arr.sort(function(a, b) {return a.lastName.localeCompare(b.lastName);});
+  return arr;
+
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,10 +107,35 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = (arr) => {
-  // Solution code here...
-};
 
+// const sortPeopleBetter = (arr) => {
+//   arr.sort(function(a, b) {
+//     if(a.lastName !== b.lastName) {
+//       return a.lastName.localeCompare(b.lastName);
+//     }
+//     else if(a.lastName === b.lastName) {
+//       return a.firstName.localeCompare(b.firstName);
+//     }
+
+//     else if(a.lastName === b.lastName && a.firstName === b.firstName) {
+//       return b.age - a.age;
+//     }
+//   });
+//    return arr;
+// };
+const sortPeopleBetter = (arr) => {
+
+  return arr.sort((a, b) => {
+    if (a.lastName !== b.lastName) {
+      return a.lastName > b.lastName ? 1 : -1;
+    } else if (a.firstName !== b.firstName) {
+      return a.firstName > b.firstName ? 1 : -1;
+    } else {
+      return a.age - b.age;
+    }
+  });
+
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 Write a function named sortMeetingsByDay that takes in an array of objects, each of which represents a meeting happening a particular day of the week, with a particular start time and end time.
