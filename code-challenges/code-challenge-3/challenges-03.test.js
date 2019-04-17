@@ -6,7 +6,8 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => b - a);
+  return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -17,7 +18,8 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  arr.sort()
+  return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,8 +28,11 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-  // Solution code here...
-};
+  arr.sort(function(a, b) {
+  return a.length - b.length
+})
+return arr
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -36,7 +41,10 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  arr.sort(function(a,b){
+    return a.toLowerCase() > b.toLowerCase() ? 1 : -1
+})
+return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,9 +59,11 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
-};
-
+    arr.sort(function(a,b){
+      return a.price - b.price
+})
+return arr
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 Write a function named sortNumbersByLength that takes in an array of numbers and sorts those numbers by their length.
@@ -61,8 +71,11 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
-};
+  arr.sort(function(a,b){
+    return a.toString().length - b.toString().length
+})
+return arr
+}
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -82,9 +95,11 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  arr.sort(function(a,b){
+    return a.lastName > b.lastName ? 1 : -1
+})
+return arr
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
 Write a function named sortPeopleBetter that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names.
