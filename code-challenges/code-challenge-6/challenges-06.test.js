@@ -91,17 +91,32 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+for(let i = 0; i < arr.length; i++) {
+if(character === arr[i].name && arr[i].children.length > 0){
+  return true;
+} else {
+  continue;
+}
+}
+return false;
 };
 
-/* ------------------------------------------------------------------------------------------------
+/*
+------------------------------------------------------------------------------------------------
 CHALLENGE 5
 Write a function named hasChildrenEntries that is similar to your hasChildrenValues function from challenge 4, but uses the data's entries instead of its values.
 The input and output of this function are the same as the input and output from challenge 4.
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++) {
+    if(character === arr[i].name && arr[i].children.length > 0){
+      return true;
+    } else {
+      continue;
+    }
+    }
+    return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
