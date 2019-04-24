@@ -7,7 +7,8 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
+  const result = arr.filter(x => x % 2 !== 0)
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -19,7 +20,13 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  const result = arr.filter(word => {
+    let vowel = word.search(/[aeiou]/ig)
+    if(vowel !== -1) {
+      return true;
+    }
+  })
+  return result;
 };
 
 
@@ -30,7 +37,14 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+  const result = arr.filter((word) => {
+    if(forbiddenValues.includes(word)) {
+      return false;
+    } else {
+      return true;
+    }
+  })
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
