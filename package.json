@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --verbose false",
-    "watch": "jest --watchall"
+    "watch": "jest --watchall",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "",
