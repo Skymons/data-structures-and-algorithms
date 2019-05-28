@@ -7,7 +7,7 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  var newString = `${str} The end.`
+  var newString = `${str} The end.`;
   return newString;
 };
 
@@ -22,7 +22,7 @@ console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-  var arrPush = arr.push(arr[0])
+  arr.push(arr[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ Write a function that accepts an array of people objects and adds a new property
 The function should modify the object in place. Do not use a return statement.
 For example:
 const people = [
-  { fullName: 'Octavia Butler' }, 
+  { fullName: 'Octavia Butler' },
   { fullName: 'Ray Bradbury' }
 ];
 setStatusAsAuthor(people);
@@ -55,8 +55,8 @@ console.log(people[1].isAuthor) prints true
 
 const setStatusAsAuthor = (people) => {
   people.forEach((person) => {
-  person.isAuthor = true;
-});
+    person.isAuthor = true;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------

@@ -46,10 +46,10 @@ const removeOne = (num, arr) => {
 };
 
 const removeElements = (arr, callback) => {
-   arr.forEach(item => {
-      callback(item, arr)
+  arr.forEach(item => {
+    callback(item, arr);
   });
-  return arr
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,8 +76,8 @@ const removeWithAnon = (arr) => {
     if(item % 3 === 2){
       arr.pop();
     }
-});
-return arr
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -127,11 +127,11 @@ const fizzbuzz = (arr) => {
     else if(item % 5 === 0) {
       output.push('Buzz');
     }
-    
+
     else {
       output.push(item);
     }
-  })
+  });
   return output;
 };
 
@@ -155,7 +155,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xxdescribe('Testing challenge 3', () => {
+xdescribe('Testing challenge 3', () => {
   test('It should remove three elements from the array', () => {
     expect(removeElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], removeOne)).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
     expect(removeElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], removeOne).length).toStrictEqual(7);

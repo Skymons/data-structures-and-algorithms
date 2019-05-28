@@ -11,9 +11,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-    let regExp = /[0-9]/;
-    input.toString();
-    return regExp.test(input);
+  let regExp = /[0-9]/;
+  input.toString();
+  return regExp.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -32,12 +32,12 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-    const cityName = /^[A-J]/;
-    const cityArr = [];
-    arr.forEach(city => {
-        if(cityName.test(city)) cityArr.push(city);
-    });
-    return cityArr;
+  const cityName = /^[A-J]/;
+  const cityArr = [];
+  arr.forEach(city => {
+    if(cityName.test(city)) cityArr.push(city);
+  });
+  return cityArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,7 +74,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  return str.replace(/[aeiou]/ig,'_')
+  return str.replace(/[aeiou]/ig,'_');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,6 +88,7 @@ const seashells = 'She sells seashells by the seashore. The shells she sells are
 
 const findShells = (str) => {
   // Solution code here...
+  return str;
 };
 
 /* ------------------------------------------------------------------------------------------------

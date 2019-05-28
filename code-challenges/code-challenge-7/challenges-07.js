@@ -10,7 +10,7 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 const forLoopTwoToThe = (arr) => {
   let newArr = [];
   for(let i = 0; i < arr.length; i++){
-    newArr.push(Math.pow(2, arr[i]))
+    newArr.push(Math.pow(2, arr[i]));
   }
   return newArr;
 };
@@ -24,7 +24,7 @@ const forEachTwoToThe = (arr) => {
   let newArr = [];
   arr.forEach(num => {
     newArr.push(Math.pow(2, num));
-  })
+  });
   return newArr;
 };
 
@@ -34,7 +34,7 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  let newArr = arr.map(x => Math.pow(2, x))
+  let newArr = arr.map(x => Math.pow(2, x));
   return newArr;
 };
 
@@ -60,7 +60,7 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 const evenOdd = (arr) => {
   const result = arr.map(num => {
     if(isNaN(num)) {
-      return 'N/A'
+      return 'N/A';
     } else if(num % 2 === 0) {
       return 'even';
     } else {
@@ -112,7 +112,7 @@ const snorlaxAbilities = {
 const extractAbilities = (arr) => {
   const result = arr.map(curArr => {
     return curArr.ability.name;
-  })
+  });
   return result;
 };
 
@@ -162,8 +162,8 @@ const extractStats = (arr) => {
     return {
       name: name,
       total: total
-    }
-  })
+    };
+  });
   return result;
 };
 

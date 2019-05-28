@@ -7,7 +7,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  const result = arr.filter(x => x % 2 !== 0)
+  const result = arr.filter(x => x % 2 !== 0);
   return result;
 };
 
@@ -21,11 +21,11 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   const result = arr.filter(word => {
-    let vowel = word.search(/[aeiou]/ig)
+    let vowel = word.search(/[aeiou]/ig);
     if(vowel !== -1) {
       return true;
     }
-  })
+  });
   return result;
 };
 
@@ -43,7 +43,7 @@ const notInFirstArray = (forbiddenValues, arr) => {
     } else {
       return true;
     }
-  })
+  });
   return result;
 };
 
@@ -88,8 +88,8 @@ const getBaseStatGreaterThan = (arr, minBaseStat) => {
   const result = arr.filter( baseStat=> {
     if(baseStat.baseStat > minBaseStat){
       return true;
-    };
-  })
+    }
+  });
   return result;
 };
 
@@ -102,7 +102,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 const getStatName = (arr, minBaseStat) => {
   return getBaseStatGreaterThan(arr, minBaseStat).map(stats => {
     return stats.stat.name;
-});
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,10 +158,10 @@ const getCharactersWithoutChildren = (arr) => {
     if (item.children) {
       return false;
     }
-      else{
-        return true;
-      } 
-  })
+    else{
+      return true;
+    }
+  });
   return result;
 };
 
@@ -172,7 +172,7 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
-  // Solution code here...
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------

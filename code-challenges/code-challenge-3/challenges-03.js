@@ -158,6 +158,7 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -168,7 +169,7 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------

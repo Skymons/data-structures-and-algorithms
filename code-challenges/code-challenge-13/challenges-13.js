@@ -1,4 +1,4 @@
-    
+
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 
 const sortByDay = (arr) => {
   let results = [];
-  daysOfWeek.forEach(day => results.push([]));
+  daysOfWeek.forEach(day => results.push(day));
   arr.forEach(task => {
     daysOfWeek.forEach((day, idx) => {
       if (task.includes(day)) {
