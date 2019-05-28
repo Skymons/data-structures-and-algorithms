@@ -77,7 +77,7 @@ const getHouses = (arr) => {
   let houses = [];
   arr.forEach(character => {
     houses.push(character.house);
-  })
+  });
   return houses;
 };
 
@@ -91,14 +91,14 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-for(let i = 0; i < arr.length; i++) {
-if(character === arr[i].name && arr[i].children.length > 0){
-  return true;
-} else {
-  continue;
-}
-}
-return false;
+  for(let i = 0; i < arr.length; i++) {
+    if(character === arr[i].name && arr[i].children.length > 0){
+      return true;
+    } else {
+      continue;
+    }
+  }
+  return false;
 };
 
 /*
@@ -115,8 +115,8 @@ const hasChildrenEntries = (arr, character) => {
     } else {
       continue;
     }
-    }
-    return false;
+  }
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,6 +129,7 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
   const sizes = [];
   // Solution code here...
+  sizes.push(arr);
   return sizes;
 };
 
@@ -147,6 +148,8 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 const houseSurvivors = (arr) => {
   const survivors = [];
   // Solution code here...
+  survivors.push(arr);
+  survivors.push(deceasedSpouses);
   return survivors;
 };
 
