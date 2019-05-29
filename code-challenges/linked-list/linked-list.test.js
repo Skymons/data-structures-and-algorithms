@@ -88,4 +88,24 @@ describe('Linked List', () => {
     emptyList.push(4);
     expect(emptyList.insertAfter(5,1)).toBe(null);
   });
+
+  it('Can get a value a specific number of spots away from the end', () => {
+    let emptyList = new LinkedList();
+    emptyList.push(1);
+    emptyList.push(2);
+    emptyList.push(3);
+    emptyList.push(4);
+    console.log(emptyList);
+    expect(emptyList.findNodeFromEnd(1)).toBe(3);
+  });
+
+  it('returns does not exist when integer is larger than list', () => {
+    let emptyList = new LinkedList();
+    emptyList.push(1);
+    emptyList.push(2);
+    emptyList.push(3);
+    emptyList.push(4);
+    console.log(emptyList);
+    expect(emptyList.findNodeFromEnd(5)).toBe('Node does not exist');
+  });
 });

@@ -13,6 +13,7 @@ class LinkedList {
   {
     this.head = null;
     this.size = 0;
+    this.length = 0;
   }
 
   push(value) {
@@ -30,6 +31,7 @@ class LinkedList {
 
       current.next = node;
     }
+    this.length++;
     this.size++;
   }
 
@@ -41,7 +43,7 @@ class LinkedList {
       this.head = new Node(value);
       this.head.next = oldHead;
     }
-
+    this.length++;
   }
 
   includes(value) {
@@ -75,6 +77,7 @@ class LinkedList {
           let oldVal = current.next;
           current.next = new Node(newVal);
           current.next.next = oldVal;
+          this.length++;
           break;
         }
         current = current.next;
@@ -92,12 +95,28 @@ class LinkedList {
           let oldVal = current.next;
           current.next = new Node(newVal);
           current.next.next = oldVal;
+          this.length++;
           break;
         }
         current = current.next;
       }
     } else {
       return null;
+    }
+  }
+
+  findNodeFromEnd(val) {
+    let current = this.head;
+    if(val > this.length) {
+      return 'Node does not exist';
+    } else {
+      let loopTime = this.length - 1 - val;
+      for(let i = 0; i <= loopTime; i++) {
+        if(i === loopTime) {
+          return current.value;
+        }
+        current = current.next;
+      }
     }
   }
 }
