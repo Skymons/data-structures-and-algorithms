@@ -60,13 +60,13 @@ class LinkedList {
   }
 
   toString() {
-    var myLinkedListString = '';
+    var myLinkedListString = [];
     var current = this.head;
     while (current) {
-      myLinkedListString += current.value + ',';
+      myLinkedListString.push(current.value);
       current = current.next;
     }
-    return myLinkedListString;
+    return myLinkedListString.join(',');
   }
 
   insertBefore(val, newVal) {

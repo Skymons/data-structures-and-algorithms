@@ -48,7 +48,7 @@ describe('Linked List', () => {
     let emptyList = new LinkedList();
     emptyList.push(1);
     emptyList.push(2);
-    expect(emptyList.toString()).toBe('1,2,');
+    expect(emptyList.toString()).toBe('1,2');
   });
 
   it('Can properly return a collection of all the values that exist in the linked list', () => {
@@ -58,7 +58,7 @@ describe('Linked List', () => {
     emptyList.push(3);
     emptyList.push(4);
     emptyList.insertBefore(3,1);
-    expect(emptyList.toString()).toBe('1,2,1,3,4,');
+    expect(emptyList.toString()).toBe('1,2,1,3,4');
   });
 
   it('Can properly return a collection of all the values that exist in the linked list', () => {
@@ -68,7 +68,7 @@ describe('Linked List', () => {
     emptyList.push(3);
     emptyList.push(4);
     emptyList.insertAfter(3,1);
-    expect(emptyList.toString()).toBe('1,2,3,1,4,');
+    expect(emptyList.toString()).toBe('1,2,3,1,4');
   });
 
   it('Can properly return a collection of all the values that exist in the linked list', () => {
@@ -95,7 +95,6 @@ describe('Linked List', () => {
     emptyList.push(2);
     emptyList.push(3);
     emptyList.push(4);
-    console.log(emptyList);
     expect(emptyList.findNodeFromEnd(1)).toBe(3);
   });
 
@@ -105,7 +104,6 @@ describe('Linked List', () => {
     emptyList.push(2);
     emptyList.push(3);
     emptyList.push(4);
-    console.log(emptyList);
     expect(emptyList.findNodeFromEnd(5)).toBe('Node does not exist');
   });
 });
