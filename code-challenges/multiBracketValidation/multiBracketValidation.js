@@ -7,18 +7,24 @@ module.exports = function bracketValidation(str) {
   var openBrackets = ['(', '{', '['];
   var closeBrackets = [')', '}', ']'];
   var splitArr = str.split('').filter(item => {
-    brackets.includes(item);
+    return brackets.includes(item);
   });
+  console.log({ str, splitArr })
+
+  var stack = new Stack();
 
   for(let i = 0; i < splitArr.length; i++) {
     if(openBrackets.includes(splitArr[i])) {
-      Stack.push(splitArr[i]);
+      stack.push(splitArr[i]);
+      console.log('pushed', stack.toString());
     }
-    if(closeBrackets.includes(splitArr[i]) && Stack.top.value === openBrackets[closeBrackets.indexOf(splitArr[i])]) {
-      Stack.pop();
+    else if(closeBrackets.includes(splitArr[i])
+      && stack.peek() === openBrackets[closeBrackets.indexOf(splitArr[i])]) {
+      stack.pop();
+      console.log('popped', stack.toString());
     } else {
       return false;
     }
   }
-  return true;
+  return stack.peek() === 'Stack is empty';
 };
