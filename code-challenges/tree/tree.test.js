@@ -23,14 +23,20 @@ describe('methods of a tree', () => {
 
   it('Can traverse in order', () => {
     expect(seed.inorder(seed.root)).toEqual([0,1,2,3,1234]);
+    expect(seed.inorder(seed.root)).toEqual([0,1,2,3,1234]);
   });
 
   it('Can traverse pre order', () => {
     expect(seed.preorder(seed.root)).toEqual([1,0,2,3,1234]);
+
+    var tree2 = new Tree;
+    tree2.insert('x');
+    expect(tree2.preorder(tree2.root)).toEqual(['x']);
   });
 
   it('Can traverse post order', () => {
     expect(seed.postorder(seed.root)).toEqual([0,1234,3,2,1]);
+    //expect(seed.postorder(seed.root)).toEqual([0,1234,3,2,1]);
   });
 
 
