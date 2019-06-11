@@ -15,12 +15,12 @@ function fizzBuzzify(val) {
 function fizzBuzzTree(tree) {
   if(tree.root === null) {
     return null;
-  } else if (tree.root.left !== null) {
-    tree.root.value = fizzBuzzify(tree.root.value);
-    fizzBuzzTree(tree.root.left);
-  } else if (tree.root.right !== null) {
-    tree.root.value = fizzBuzzify(tree.root.value);
-    fizzBuzzTree(tree.root.right);
+  } else if (tree.left !== null) {
+    tree.root.value = fizzBuzzify(tree.value);
+    fizzBuzzTree(tree.left);
+  } else if (tree.right !== null) {
+    tree.value = fizzBuzzify(tree.value);
+    fizzBuzzTree(tree.right);
   }
 }
 
