@@ -13,15 +13,17 @@ function fizzBuzzify(val) {
 }
 
 function fizzBuzzTree(tree) {
-  if(tree.root === null) {
+  fizzBuzzNode(tree.root);
+}
+
+function fizzBuzzNode(node) {
+  if(node === null) {
     return null;
-  } else if (tree.left !== null) {
-    tree.root.value = fizzBuzzify(tree.value);
-    fizzBuzzTree(tree.left);
-  } else if (tree.right !== null) {
-    tree.value = fizzBuzzify(tree.value);
-    fizzBuzzTree(tree.right);
   }
+
+  node.value = fizzBuzzify(node.value);
+  fizzBuzzNode(node.left);
+  fizzBuzzNode(node.right);
 }
 
 module.exports = {

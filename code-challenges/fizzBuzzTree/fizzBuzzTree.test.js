@@ -33,12 +33,16 @@ describe('changing values in a tree', () => {
   });
 
   it('Can traverse through a tree and fizzBuzz it', () => {
-    let tree = new Seed;
+    let tree = new Seed();
     tree.insert(1);
     tree.insert(3);
+    tree.insert(0);
     tree.insert(4);
     tree.insert(15);
     tree.insert(120);
-    fizzBuzz.fizzBuzzTree(tree); 
+
+    fizzBuzz.fizzBuzzTree(tree);
+
+    expect(tree.inorder()).toEqual(['FizzBuzz',1,'Fizz',4,'FizzBuzz','FizzBuzz']);
   });
 });
