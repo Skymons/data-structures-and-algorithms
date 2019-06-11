@@ -8,8 +8,7 @@ class Node {
   }
 }
 
-let inOrderArr = [];
-let preOrderArr = [];
+// TODO: delete me!
 let postOrderArr = [];
 
 module.exports = class Tree {
@@ -44,26 +43,36 @@ module.exports = class Tree {
     return this.root;
   }
 
-  inorder(node) {
-    if(node !== null)
-    {
-      this.inorder(node.left);
-      inOrderArr.push(node.value);
-      this.inorder(node.right);
-      return inOrderArr;
+  inorder() {
+    var inOrderArr = [];
+    helper(this.root);
+    return inOrderArr;
+
+    function helper(node) {
+      if(node !== null)
+      {
+        helper(node.left);
+        inOrderArr.push(node.value);
+        helper(node.right);
+      }
     }
   }
 
-  preorder(node) {
-    if(node !== null)
-    {
-      preOrderArr.push(node.value);
-      this.preorder(node.left);
-      this.preorder(node.right);
-      return preOrderArr;
+  preorder() {
+    var preOrderArr = [];
+    this.visitPreorder(value => preOrderArr.push(value));
+    return preOrderArr;
+  }
+
+  visitPreorder(callback) {
+    visitor(this.root);
+
+    function visitor(node) {
+      if (node === null) return;
+      callback(node.value);
+      visitor(node.left);
+      visitor(node.right);
     }
-
-
   }
 
   postorder(node) {
