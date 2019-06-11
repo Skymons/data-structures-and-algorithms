@@ -13,9 +13,8 @@ function fizzBuzzify(val) {
 }
 
 function fizzBuzzTree(tree) {
-  if(tree.root === null) {
-    fizzBuzzNode(tree.root);
-  }
+  fizzBuzzNode(tree.root);
+
   function fizzBuzzNode(node) {
     if(node === null) {
       return null;
