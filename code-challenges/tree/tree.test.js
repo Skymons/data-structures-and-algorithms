@@ -39,5 +39,13 @@ describe('methods of a tree', () => {
     //expect(seed.postorder(seed.root)).toEqual([0,1234,3,2,1]);
   });
 
+  it('Can traverse breadth first', () => {
+    expect(seed.breadthFirst()).toEqual([1,0,2,3,1234]);
+  });
+
+  it('return null if tree is empty doing breadth first traversal', () => {
+    let sapling = new Tree;
+    expect(sapling.breadthFirst()).toEqual(null);
+  });
 
 });

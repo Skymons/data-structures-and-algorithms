@@ -1,5 +1,7 @@
 'use strict';
 
+const Queue = require('../stacks-and-queues/stacks-and-queues');
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -81,6 +83,27 @@ module.exports = class Tree {
       this.postorder(node.right);
       postOrderArr.push(node.value);
       return postOrderArr;
+    }
+  }
+
+  breadthFirst() {
+    let breadthArr = [];
+    let breadthQueue = new Queue.Queue();
+    breadthQueue.enqueue(this.root);
+    if(this.root === null) {
+      return null;
+    } else {
+      while(breadthQueue.first) {
+        let current = breadthQueue.dequeue();
+        if(current.left !== null) {
+          breadthQueue.enqueue(current.left);
+        }
+        if(current.right !== null) {
+          breadthQueue.enqueue(current.right);
+        }
+        breadthArr.push(current.value);
+      }
+      return breadthArr;
     }
   }
 };
