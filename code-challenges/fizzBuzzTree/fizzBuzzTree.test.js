@@ -39,6 +39,6 @@ describe('changing values in a tree', () => {
     tree.insert(4);
     tree.insert(15);
     tree.insert(120);
-    fizzBuzz.fizzBuzzTree(tree); 
+    fizzBuzz.fizzBuzzTree(tree);
   });
 });
