@@ -2,7 +2,7 @@
 
 const Tree = require('./tree');
 
-let seed = new Tree;
+let seed = new Tree();
 
 describe('methods of a tree', () => {
 
@@ -44,8 +44,13 @@ describe('methods of a tree', () => {
   });
 
   it('return null if tree is empty doing breadth first traversal', () => {
-    let sapling = new Tree;
+    let sapling = new Tree();
     expect(sapling.breadthFirst()).toEqual(null);
+  });
+
+  it('Return max node value', () => {
+    let babySapling = new Tree();
+    expect(babySapling.findMaxNode(babySapling.root)).toEqual(null);
   });
 
   it('Return max node value', () => {

@@ -108,7 +108,7 @@ module.exports = class Tree {
   }
 
   findMaxNode(node) {
-    if(node.root === null) {
+    if(node === null) {
       return null;
     }
     if(node.right === null) {
