@@ -48,4 +48,8 @@ describe('methods of a tree', () => {
     expect(sapling.breadthFirst()).toEqual(null);
   });
 
+  it('Return max node value', () => {
+    expect(seed.findMaxNode(seed.root).value).toEqual(1234);
+  });
+
 });
