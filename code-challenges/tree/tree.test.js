@@ -51,5 +51,4 @@ describe('methods of a tree', () => {
   it('Return max node value', () => {
     expect(seed.findMaxNode(seed.root).value).toEqual(1234);
   });
-
 });
