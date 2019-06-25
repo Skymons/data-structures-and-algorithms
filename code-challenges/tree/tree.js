@@ -106,4 +106,16 @@ module.exports = class Tree {
       return breadthArr;
     }
   }
+
+  findMaxNode(node) {
+    if(node === null) {
+      return null;
+    }
+    if(node.right === null) {
+      return node;
+    } else {
+      return this.findMaxNode(node.right);
+    }
+  }
+
 };
