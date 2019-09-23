@@ -1,36 +1,34 @@
-'use strict';
+"use strict";
 
-let stack = require('./stacks-and-queues')
+const { Stack } = require("./stacks-and-queues");
 
-class TwoStackQueue {
-  constructor()
-  {
-    this.stack1 = new stack.Stack,
-    this.stack2 = new stack.Stack
+module.exports = class PseudoQueue {
+  constructor() {
+    this.s1 = new Stack();
+    this.s2 = new Stack();
   }
 
-  enqueue(val) {
-    while(this.stack2.top !== null) {
-      this.stack2.pop();
-    }
-
-    let tempStack = this.stack1.push(val);
-    let tempArr = [];
-
-    while(this.stack1.next !== null) {
-      let popVal = this.stack1.pop();
-      tempArr.push(popVal);
-      this.stack2.push(popVal)
-    }
-    for(let i = tempArr.length - 1; i >= 0; i--) {
-      this.stack1.push(tempArr[i])
-    }
-    return this.stack2;
+  enqueue(...values) {
+    if (!values.length) return "Please enter some values to add!";
+    this.s1.push(...values);
   }
 
-  toString() {
+  dequeue() {
+    if (!this.s1.top) return "The queue is empty!";
+    this.s1.top = this.s1.top;
+    let current = this.s1.top;
+    while (current) {
+      const val = this.s1.pop();
+      this.s2.push(val);
+      current = current.next;
+    }
+    const result = this.s2.pop();
+    current = this.s2.top;
+    while (current) {
+      const val = this.s2.pop();
+      this.s1.push(val);
+      current = current.next;
+    }
+    return result;
   }
-
-}
-
-module.exports = TwoStackQueue;
+};
