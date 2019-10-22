@@ -1,45 +1,53 @@
-'use strcit';
+'use strict';
 
 const Graph = require('./graph');
 
-describe('Graphs', () => {
+describe('A graph', () => {
+  const testGraph = new Graph;
 
-
-  it('can add values', () => {
-    let funGraph = new Graph;
-    funGraph.add('Xbox360');
-    funGraph.add('XboxONE');
-    expect(funGraph.size).toBe(2);
-    expect(funGraph.contains('Xbox360')).toBe(true);
-    expect(funGraph.contains('XboxONE')).toBe(true);
-    expect(funGraph.contains('Xbox')).toBe(false);
-    expect(funGraph.contains('Xbo')).toBe(false);
+  it('should be empty upon instantiation', () => {
+    expect(testGraph.adjacencyList.length).toBe(0);
   });
 
-  it('can add links between values', () => {
-    let funGraph = new Graph;
-    funGraph.add('Xbox360');
-    funGraph.add('XboxONE');
-    funGraph.addLink('Xbox360', 'XboxONE');
-    expect(funGraph.checkLink('Xbox360', 'XboxONE')).toBe(true);
+  it('should have a size of 0', () => {
+    expect(testGraph.size()).toBe(0);
   });
 
-  it('can delete links between values', () => {
-    let funGraph = new Graph;
-    funGraph.add('Xbox360');
-    funGraph.add('XboxONE');
-    funGraph.addLink('Xbox360', 'XboxONE');
-    funGraph.deleteLink('Xbox360', 'XboxONE');
-    expect(funGraph.checkLink('Xbox360', 'XboxONE')).toBe(false);
+  it('should be able to add new nodes', () => {
+    let received = testGraph.addNode('a');
+
+    expect(received.head.value).toBe('a');
+    expect(testGraph.size()).toBe(1);
   });
 
-  it('can delete values', () => {
-    let funGraph = new Graph;
-    funGraph.add('Xbox360');
-    funGraph.add('XboxONE');
-    funGraph.deleteValue('Xbox360');
-    expect(funGraph.contains('Xbox360')).toBe(false);
-    expect(funGraph.contains('XboxONE')).toBe(true);
+  it('shouldn\'t be able to add duplicate nodes', () => {
+    let received = testGraph.addNode('a');
+
+    expect(received).toBe('Node already exists!');
+    expect(testGraph.size()).toBe(1);
+  });
+
+  it('should be able to create new edges', () => {
+    let error = testGraph.addEdge('a', 'missing', 1);
+    testGraph.addNode('b');
+    let good = testGraph.addEdge('a', 'b', 1);
+
+    expect(error).toBe('missing doesn\'t exist!');
+    expect(good).toBeUndefined();
+  });
+
+  it('should be able to retrieve all of the nodes', () => {
+    let received = testGraph.getNodes();
+
+    expect(received).toStrictEqual(['a', 'b']);
+  });
+
+  it('should be able to retrieve all of the neighbors for a given node', () => {
+    let received = testGraph.getNeighbors('a');
+    let missing = testGraph.getNeighbors('missing');
+
+    expect(missing).toStrictEqual([]);
+    expect(received).toStrictEqual([{ node: 'b', weight: 1 }]);
   });
 
 });

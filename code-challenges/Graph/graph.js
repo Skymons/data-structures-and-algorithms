@@ -1,42 +1,52 @@
 'use strict';
 
-const Graph = function() {
-  this.container = {};
-  this.size = 0;
-};
+const LL = require('../linked-list/linked-list');
+const { Queue } = require('../stacks-and-queues/stacks-and-queues');
 
-Graph.prototype.add = function (value) {
-  this.container[value] = {};
-  this.size ++;
-};
-
-Graph.prototype.addLink = function(start, end) {
-  this.container[start][end] = true;
-  this.container[end][start] = true;
-};
-
-Graph.prototype.deleteLink = function(start, end) {
-  delete this.container[start][end];
-  delete this.container[end][start];
-};
-
-Graph.prototype.checkLink = function(start, end) {
-  return this.container[start].hasOwnProperty(end);
-};
-
-Graph.prototype.contains = function(value) {
-  return this.container.hasOwnProperty(value);
-};
-
-Graph.prototype.deleteValue = function(value) {
-  console.log(this.container[value]);
-  delete this.container[value];
-  this.size --;
-  for(let entry in this.container) {
-    if (this.container[entry][value]) {
-      delete this.container[entry] [value];
-    }
+class Graph {
+  constructor() {
+    this.adjacencyList = [];
   }
-};
+
+  addNode(node) {
+    const exists = this.adjacencyList.find(i => i.head.value === node);
+    if (exists) return 'Node already exists!';
+
+    const newNode = new LL();
+    newNode.insert(node);
+    this.adjacencyList.push(newNode);
+    return newNode;
+  }
+
+  addEdge(n1, n2, weight) {
+    let node1 = this.adjacencyList.find(i => i.head.value === n1);
+    if (!node1) return `${n1} doesn't exist!`;
+
+    let node2 = this.adjacencyList.find(i => i.head.value === n2);
+    if (!node2) return `${n2} doesn't exist!`;
+
+    node1.append({ node: n2, weight });
+    node2.append({ node: n1, weight });
+  }
+
+  getNodes() {
+    if (!this.adjacencyList.length) return this.adjacencyList;
+
+    return this.adjacencyList.map(i => i.head.value);
+  }
+
+  getNeighbors(node) {
+    if (!this.adjacencyList.length) return [];
+
+    let nodeConnections = this.adjacencyList.find(i => i.head.value === node);
+    if (nodeConnections) return nodeConnections.toString().split(', ').slice(1).map(i => JSON.parse(i));
+
+    return [];
+  }
+
+  size() {
+    return this.adjacencyList.length;
+  }
+}
 
 module.exports = Graph;
