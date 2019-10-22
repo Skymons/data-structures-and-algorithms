@@ -1,49 +1,60 @@
-'use strict';
+const LinkedList = require('../linked-list/linked-list');
 
 class HashTable {
-  constructor(size = 144) {
+  constructor(count) {
     this.storage = [];
-    this.size = size;
+    this.bucketCount = count || 1024;
   }
 
-  hash(key) {
-    let prime = 929;
-    let total = 0;
-    if(typeof key !== 'string'){
-      key = JSON.stringify(key);
+  add(obj) {
+    // takes in both the key and value. This method should hash the key, and add the key and value pair to the table, handling collisions as need
+    if (!obj) return `Please provide and object`;
+    let index = this.hash(Object.keys(obj)[0]);
+    if (!this.storage[index]) {
+      this.storage[index] = new LinkedList();
     }
-    if (!key) {
-      return 0;
-    }
-    for(let i = 0; i < key.length; i++){
-      total += prime * total + key.charCodeAt(i);
-    }
-    return total % 144;
-  }
-
-  add(key, value) {
-    let bucket = this.hash(key);
-    this.storage[bucket] = { key, value };
-  }
-
-  contains(key) {
-    if(!this.storage[this.hash(key)]) {
-      return false;
-    } else {
-      return true;
-    }
+    // insert is from linkedlist constructor
+    this.storage[index].insert(obj);
+    return this.storage[index].head;
   }
 
   get(key) {
-    let keyFind = this.storage[this.hash(key)];
-    if(!keyFind) {
-      return null;
+    // takes in the key and returns the value from the table.
+    if (!key) return `Please provide a key`;
+    let current;
+    let index = this.hash(key);
+    if (this.storage[index]) {
+      current = this.storage[index].head;
     } else {
-      return keyFind.value;
+      current = null;
     }
+    while (current) {
+      if (current.value[key]) return current.value;
+      current = current.next;
+    }
+    return current;
   }
 
-}
+  contains(key) {
+    if (!key) return `Please provide a key`;
+    let value = this.get(key);
+    if (!value) {
+      return false;
+    }
+    return true;
+  }
 
+  hash(key) {
+    if (!key) return `Please provide a key`;
+    if (typeof key !== 'string') {
+      key = JSON.stringify(key);
+    }
+    let hash = key
+      .split('')
+      .map((char) => char.charCodeAt(0))
+      .reduce((acc, cur) => acc + cur);
+    return Math.floor((hash * 599) / this.bucketCount);
+  }
+}
 
 module.exports = HashTable;

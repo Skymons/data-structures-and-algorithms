@@ -1,23 +1,29 @@
-'use strict';
+const HashTable = require('./hashtable');
 
-const HashTable = require('./hashTable');
+describe('The HashTable Class', () => {
+  it('can produce a hash code', () => {
+    let testTable = new HashTable(1024);
 
-describe('Hash Tables', () => {
-
-  it('returns false for value that is not in table', () => {
-    let newHT = new HashTable;
-    expect(newHT.contains('missing')).toBe(false);
-    expect(newHT.get('missing')).toBe(null);
+    expect(testTable.hash('cat')).toBe(182);
+    expect(testTable.hash('austin')).toBe(386);
+    expect(testTable.hash()).toBe(`Please provide a key`);
   });
 
-  it('returns true if value exists in table', () => {
-    let newHT = new HashTable;
-    newHT.add('sky', 'mons');
+  it('can add an object to the hash table', () => {
+    let testTable = new HashTable(1024);
+    let test = testTable.add({ cat: 100 });
+    expect(test.value).toEqual({ cat: 100 });
+  });
 
-    expect(newHT.contains('sky')).toBe(true);
-    expect(newHT.get('sky')).toBe('mons');
+  it('can get an object from the hash table', () => {
+    let testTable = new HashTable(1024);
+    testTable.add({ cat: 100 });
+    expect(testTable.get('cat')).toEqual({ cat: 100 });
+  });
 
-    expect(newHT.contains('missing')).toBe(false);
-    expect(newHT.get('missing')).toBe(null);
+  it('returns a boolean referencing if the key is in the table or not', () => {
+    let testTable = new HashTable();
+    testTable.add({ dog: 100 });
+    expect(testTable.contains('dog')).toBeTruthy();
   });
 });
