@@ -1,4 +1,4 @@
-const HashTable = require('./hashtable');
+const HashTable = require('./hashTable');
 
 describe('The HashTable Class', () => {
   it('can produce a hash code', () => {
