@@ -52,6 +52,11 @@ class Stack {
     }
     return myLinkedListString.join(',');
   }
+
+  isEmpty() {
+    return this.top ? false : true;
+  }
+
 }
 
 class QueueNode {
