@@ -5,7 +5,7 @@ describe('The HashTable Class', () => {
     let testTable = new HashTable(1024);
 
     expect(testTable.hash('cat')).toBe(182);
-    expect(testTable.hash('austin')).toBe(386);
+    expect(testTable.hash('skylar')).toBe(387);
     expect(testTable.hash()).toBe(`Please provide a key`);
   });
 
